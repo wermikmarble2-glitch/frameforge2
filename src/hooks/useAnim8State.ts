@@ -81,6 +81,12 @@ export const useAnim8State = (initialState: Anim8State) => {
         }
         return { ...state, animation: { ...state.animation, frames: newFrames }, currentFrameId: newCurrentFrameId };
       }
+      case 'RENAME_FRAME': {
+        const newFrames = state.animation.frames.map(frame => 
+          frame.id === action.frameId ? { ...frame, name: action.name } : frame
+        );
+        return { ...state, animation: { ...state.animation, frames: newFrames } };
+      }
       case 'ADD_LAYER': {
         const newLayerId = newId();
         const newLayer: Layer = { id: newLayerId, name: `Layer ${Date.now() % 100}`, isVisible: true, opacity: 1 };

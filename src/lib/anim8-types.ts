@@ -40,6 +40,7 @@ export type Action =
   | { type: 'ADD_FRAME'; afterFrameId: string }
   | { type: 'DUPLICATE_FRAME'; frameId: string }
   | { type: 'DELETE_FRAME'; frameId: string }
+  | { type: 'RENAME_FRAME'; frameId: string, name: string }
   | { type: 'SET_CURRENT_FRAME'; frameId: string }
   | { type: 'ADD_LAYER'; afterLayerId: string }
   | { type: 'DELETE_LAYER'; layerId: string }
